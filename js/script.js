@@ -21,6 +21,55 @@ document.getElementById('shipping-form').addEventListener('submit', function(eve
     document.getElementById('result').innerText = `El costo de envío estimado es $${shippingCost.toFixed(2)}`;
   });
 
+
+    // Array de productos (ciudades)
+    String[] country = {'capitalFederal':'Rosario','Córdoba'};
+        
+    // Mostrar las opciones al usuario
+    System.out.println("Seleccione una ciudad:");
+    for (int i = 0; i < ciudades.length; i++) {
+      System.out.println((i + 1) + ". " + ciudades[i]);
+  }
+
+    // Leer la entrada del usuario
+    Scanner = newScanner(System.in);
+      int opcion = scanner.nextInt();
+
+    // Validar la entrada y mostrar la ciudad seleccionada
+    if (opcion >= 1 && opcion <= ciudades.length) {
+      System.out.println("Ha seleccionado: " + ciudades[opcion - 1]);
+    } else {
+      System.out.println("Opción inválida.");
+  }
+
+    // Cerrar el escáner
+  scanner.close();
+}
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
+
+public class Main {
+  public static void main(String[] args) {
+    // Lista de ciudades
+    List<String> ciudades = Arrays.asList("CABA", "Rosario", "Córdoba");
+
+    // Uso de forEach para imprimir todas las ciudades
+    System.out.println("Todas las ciudades:");
+    ciudades.forEach(System.out::println);
+
+    // Uso de filter para filtrar ciudades que contienen la letra 'a'
+    System.out.println("\nCiudades que contienen la letra 'a':");
+    Predicate<String> contieneLetraA = ciudad -> ciudad.toLowerCase().contains("a");
+    ciudades.stream()
+      .filter(contieneLetraA)
+      .forEach(System.out::println);
+    }
+}
+
+}
+
   function calculateShippingCost(weight, height, width, length, country) {
     // Simulación simple del costo de envío (fórmula arbitraria)
     let cost = weight * 0.1 + (height + width + length) * 0.05;
