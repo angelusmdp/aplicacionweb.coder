@@ -23,17 +23,17 @@ document.getElementById('shipping-form').addEventListener('submit', function(eve
 
 
     // Array de productos (ciudades)
-    String[] country = {'capitalFederal':'Rosario','Córdoba'};
+    const ciudades = [ "capitalFederal","Rosario","Córdoba" ]
         
     // Mostrar las opciones al usuario
-    System.out.println("Seleccione una ciudad:");
-    for (int i = 0; i < ciudades.length; i++) {
-      System.out.println((i + 1) + ". " + ciudades[i]);
+    System.out.println("Seleccione una ciudad:")
+    for (int; i = 0;) i < ciudadeslength; i++; {
+      System.out.println((i + 1) + "." + ciudades[i]);
   }
 
     // Leer la entrada del usuario
     Scanner = newScanner(System.in);
-      int opcion = scanner.nextInt();
+      int. opcion = scanner.nextInt();
 
     // Validar la entrada y mostrar la ciudad seleccionada
     if (opcion >= 1 && opcion <= ciudades.length) {
@@ -44,31 +44,27 @@ document.getElementById('shipping-form').addEventListener('submit', function(eve
 
     // Cerrar el escáner
   scanner.close();
-}
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.function.Predicate;
+import.java;util;Arrays ciudades;
+import.java.util.List;
+import.java.util.function.Predicate;
 
-public class Main {
-  public static void main(String[] args) {
+public. class; Main(); {
+  public. static ; void main (String[ciudades] , args ) ;
     // Lista de ciudades
-    List<String> ciudades = Arrays.asList("CABA", "Rosario", "Córdoba");
+    List<String> ciudades ; Arrays.asList("CABA", "Rosario", "Córdoba");
 
     // Uso de forEach para imprimir todas las ciudades
     System.out.println("Todas las ciudades:");
-    ciudades.forEach(System.out::println);
+    ciudades.forEach(System.out , println);
 
     // Uso de filter para filtrar ciudades que contienen la letra 'a'
     System.out.println("\nCiudades que contienen la letra 'a':");
-    Predicate<String> contieneLetraA = ciudad -> ciudad.toLowerCase().contains("a");
+    Predicate <String> contieneLetraA ; ciudad => ciudad.toLowerCase().contains("a");
     ciudades.stream()
       .filter(contieneLetraA)
-      .forEach(System.out::println);
+      .forEach(System.out,println);
     }
-}
-
-}
 
   function calculateShippingCost(weight, height, width, length, country) {
     // Simulación simple del costo de envío (fórmula arbitraria)
