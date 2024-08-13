@@ -1,0 +1,64 @@
+{
+    "cities": [
+        {
+            "name": "CABA",
+            "code": "CABA",
+            "shippingMultiplier": 1.2
+        },
+        {
+            "name": "Rosario",
+            "code": "ROS",
+            "shippingMultiplier": 1.5
+        },
+        {
+            "name": "Córdoba",
+            "code": "COR",
+            "shippingMultiplier": 1.3
+        }
+    ],
+    "standardPackages": [
+        {
+            "name": "Pequeño",
+            "weight": 1.0,
+            "height": 10,
+            "width": 15,
+            "length": 20
+        },
+        {
+            "name": "Mediano",
+            "weight": 5.0,
+            "height": 20,
+            "width": 30,
+            "length": 40
+        },
+        {
+            "name": "Grande",
+            "weight": 10.0,
+            "height": 50,
+            "width": 60,
+            "length": 70
+        }
+    ],
+    "previousShipments": [
+        {
+            "id": 1,
+            "weight": 2.0,
+            "height": 15,
+            "width": 20,
+            "length": 25,
+            "city": "CABA",
+            "cost": 7.5,
+            "date": "2024-08-08"
+        },
+        {
+            "id": 2,
+            "weight": 3.5,
+            "height": 25,
+            "width": 30,
+            "length": 35,
+            "city": "Rosario",
+            "cost": 12.75,
+            "date": "2024-08-07"
+        }
+    ]
+}

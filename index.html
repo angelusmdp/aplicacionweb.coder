@@ -5,36 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto JavaScript</title>
     <link rel="stylesheet" href="./CSS/style.css">
-    <script defer src="./js/script.js"></script>
+    <!-- Archivo JS principal -->
+    <script defer src="./js/main.js"></script>
+    <!-- Archivo JS adicional -->
+    <script src="./js/utils.js"></script>
 </head>
 <body>
-    
     <div class="container">
-        <h1>Calcula el costo de envío</h1>
-        <form id="shipping-form">
-          <label for="weight">Peso del paquete (kg):</label>
-          <input type="number" id="weight" name="weight" required>
+      <!-- Imagen de Banner -->
+      <img src="./assets/banner_envios.png" alt="Banner de Envío" class="banner-image">
+      <h1>Calcula el costo de envío</h1>
+      <form id="shipping-form">
+        <label for="weight">Peso del paquete (kg):</label>
+        <input type="number" id="weight" name="weight" required>
           
-          <label for="height">Alto (cm):</label>
-          <input type="number" id="height" name="height" required>
+        <label for="height">Alto (cm):</label>
+        <input type="number" id="height" name="height" required>
           
-          <label for="width">Ancho (cm):</label>
-          <input type="number" id="width" name="width" required>
+        <label for="width">Ancho (cm):</label>
+        <input type="number" id="width" name="width" required>
           
-          <label for="length">Largo (cm):</label>
-          <input type="number" id="length" name="length" required>
+        <label for="length">Largo (cm):</label>
+        <input type="number" id="length" name="length" required>
           
-          <label for="country">Ciudad de destino:</label>
-          <select id="country" name="country" required>
-            <option value="CABA">Capital Federal</option>
-            <option value="ROS">Rosario</option>
-            <option value="COR">Córdoba</option>
-          </select>
+        <label for="country">Ciudad de destino:</label>
+        <select id="country" name="country" required>
+          <option value="CABA">Capital Federal</option>
+          <option value="ROS">Rosario</option>
+          <option value="COR">Córdoba</option>
+        </select>
           
-          <button type="submit">Calcular Costo de Envío</button>
-        </form>
+        <button type="submit">Calcular Costo de Envío</button>
+      </form>
         
-        <div id="result"></div>
+      <div id="result"></div>
     </div>
 </body>
 </html>
