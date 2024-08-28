@@ -9,6 +9,7 @@
     <script defer src="./js/main.js"></script>
     <!-- Archivo JS adicional -->
     <script defer src="./js/utils.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
     <!-- Imagen de Banner -->
@@ -28,8 +29,8 @@
         <label for="length">Largo (cm):</label>
         <input type="number" id="length" required>
         
-        <label for="country">País de destino:</label>
-        <input type="text" id="country" required>
+        <label for="cities">Ciudad de destino:</label>
+        <input type="text" id="cities" required>
         
         <button type="submit">Calcular Envío</button>
     </form>
@@ -57,9 +58,44 @@
         <button type="button" id="confirm-shipping">Confirmar Envío</button>
     </form>
 
-    <div id="confirmation-section" style="display:none;">
-        <h3>Resumen del Envío</h3>
-        <div id="confirmation-details"></div>
-    </div>
+    <!-- Agregado de script inline para manejar la confirmación y el resumen -->
+    <script>
+        document.getElementById('confirm-shipping').addEventListener('click', () => {
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const postalCode = document.getElementById('postal-code').value;
+            const cities = document.getElementById('cities').value;
+
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const width = parseFloat(document.getElementById('width').value);
+            const length = parseFloat(document.getElementById('length').value);
+            const cost = calculateShippingCost(weight, height, width, length);
+
+            // Guardar los datos del pedido en localStorage
+            const orderDetails = {
+                name,
+                address,
+                city,
+                postalCode,
+                cities,
+                weight,
+                height,
+                width,
+                length,
+                cost
+            };
+
+            localStorage.setItem('lastOrder', JSON.stringify(orderDetails));
+
+            // Redirigir a la página de resumen
+            window.location.href = 'order-summary.html';
+        });
+
+        function calculateShippingCost(weight, height, width, length) {
+            return (weight * 0.5) + (height * width * length * 0.0001); // Ajusta según tu lógica de costos
+        }
+    </script>
 </body>
 </html>

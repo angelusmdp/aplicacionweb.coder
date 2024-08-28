@@ -10,7 +10,7 @@ document.getElementById('shipping-form').addEventListener('submit', async functi
     let height = parseFloat(document.getElementById('height').value);
     let width = parseFloat(document.getElementById('width').value);
     let length = parseFloat(document.getElementById('length').value);
-    let country = document.getElementById('country').value.toUpperCase();
+    let cities = document.getElementById('cities').value.toUpperCase();
 
     // Validar que los campos sean números y mayores que cero
     if (isNaN(weight) || isNaN(height) || isNaN(width) || isNaN(length) || weight <= 0 || height <= 0 || width <= 0 || length <= 0) {
@@ -22,13 +22,13 @@ document.getElementById('shipping-form').addEventListener('submit', async functi
     hideElement('error-message'); // Ocultar mensaje de error si no hay problemas
 
     // Calcular el costo de envío
-    let shippingCost = await calculateShippingCost(weight, height, width, length, country);
+    let shippingCost = await calculateShippingCost(weight, height, width, length, cities);
 
     // Mostrar el resultado
     updateInnerText('result', `El costo de envío estimado es $${shippingCost.toFixed(2)}`);
 
     // Guardar en localStorage
-    saveToHistory({ weight, height, width, length, country, shippingCost });
+    saveToHistory({ weight, height, width, length, cities, shippingCost });
     displayHistory();
 
     clearInputs(); // Limpiar el formulario después del cálculo
@@ -44,7 +44,7 @@ function displayHistory() {
         const historyItem = document.createElement('div');
         historyItem.className = 'history-item';
         historyItem.innerHTML = `
-            <div>Peso: ${item.weight}kg, Dimensiones: ${item.height}x${item.width}x${item.length}cm, Destino: ${item.country} - Costo: $${item.shippingCost.toFixed(2)}</div>
+            <div>Peso: ${item.weight}kg, Dimensiones: ${item.height}x${item.width}x${item.length}cm, Destino: ${item.cities} - Costo: $${item.shippingCost.toFixed(2)}</div>
             <button onclick="deleteHistoryItem(${item.id})">Borrar</button>
         `;
         historySection.appendChild(historyItem);
@@ -74,7 +74,7 @@ document.getElementById('confirm-shipping').addEventListener('click', function()
             Detalle del envío:
             Peso: ${lastEntry.weight}kg
             Dimensiones: ${lastEntry.height}x${lastEntry.width}x${lastEntry.length}cm
-            Destino: ${lastEntry.country}
+            Destino: ${lastEntry.cities}
             Costo total: $${lastEntry.shippingCost.toFixed(2)}
         `);
     } else {
