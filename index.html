@@ -8,37 +8,58 @@
     <!-- Archivo JS principal -->
     <script defer src="./js/main.js"></script>
     <!-- Archivo JS adicional -->
-    <script src="./js/utils.js"></script>
+    <script defer src="./js/utils.js"></script>
 </head>
 <body>
-    <div class="container">
-      <!-- Imagen de Banner -->
-      <img src="./assets/banner_envios.png" alt="Banner de Envío" class="banner-image">
-      <h1>Calcula el costo de envío</h1>
-      <form id="shipping-form">
-        <label for="weight">Peso del paquete (kg):</label>
-        <input type="number" id="weight" name="weight" required>
-          
-        <label for="height">Alto (cm):</label>
-        <input type="number" id="height" name="height" required>
-          
-        <label for="width">Ancho (cm):</label>
-        <input type="number" id="width" name="width" required>
-          
-        <label for="length">Largo (cm):</label>
-        <input type="number" id="length" name="length" required>
-          
-        <label for="country">Ciudad de destino:</label>
-        <select id="country" name="country" required>
-          <option value="CABA">Capital Federal</option>
-          <option value="ROS">Rosario</option>
-          <option value="COR">Córdoba</option>
-        </select>
-          
-        <button type="submit">Calcular Costo de Envío</button>
-      </form>
+    <!-- Imagen de Banner -->
+    <img src="./assets/banner_envios.png" alt="Banner de Envío" class="banner-image">
+
+    <h1>Calculador de Envío</h1>
+    <form id="shipping-form">
+        <label for="weight">Peso (kg):</label>
+        <input type="number" id="weight" required>
         
-      <div id="result"></div>
+        <label for="height">Altura (cm):</label>
+        <input type="number" id="height" required>
+        
+        <label for="width">Ancho (cm):</label>
+        <input type="number" id="width" required>
+        
+        <label for="length">Largo (cm):</label>
+        <input type="number" id="length" required>
+        
+        <label for="country">País de destino:</label>
+        <input type="text" id="country" required>
+        
+        <button type="submit">Calcular Envío</button>
+    </form>
+
+    <div id="result"></div>
+
+    <h2>Historial de Envíos</h2>
+    <div id="history" class="history-section"></div>
+    <button onclick="clearHistory()">Vaciar Historial</button>
+
+    <h2>Confirmar Envío</h2>
+    <form id="confirmation-form">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" required>
+
+        <label for="address">Dirección:</label>
+        <input type="text" id="address" required>
+
+        <label for="city">Ciudad:</label>
+        <input type="text" id="city" required>
+
+        <label for="postal-code">Código Postal:</label>
+        <input type="text" id="postal-code" required>
+
+        <button type="button" id="confirm-shipping">Confirmar Envío</button>
+    </form>
+
+    <div id="confirmation-section" style="display:none;">
+        <h3>Resumen del Envío</h3>
+        <div id="confirmation-details"></div>
     </div>
 </body>
 </html>

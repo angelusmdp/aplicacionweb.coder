@@ -24,4 +24,4 @@ function initializeForm() {
 }
 
 // Llamar a initializeForm cuando se carga la página
-document.addEventListener('DOMContentLoaded', initializeForm);
+document.addEventListener('shipping-form').addEventListener('submit', initializeForm);
